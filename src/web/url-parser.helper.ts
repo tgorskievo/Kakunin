@@ -1,8 +1,12 @@
 import * as Url from 'url';
 
-const extractDomain = url => Url.parse(url).host;
-const extractUrl = url => Url.parse(url).pathname;
-const normalizeUrl = url => {
+interface UrlParameters {
+  [urlParam: string]: string;
+}
+
+const extractDomain = (url: string): string => Url.parse(url).host;
+const extractUrl = (url: string): string => Url.parse(url).pathname;
+const normalizeUrl = (url: string): string => {
   if (url.length === 0) {
     return extractUrl('/');
   }
@@ -14,8 +18,8 @@ const normalizeUrl = url => {
   return extractUrl(url);
 };
 
-const compareUrls = (urlSplit, baseUrlSplit) => {
-  const resultParameters = {};
+const compareUrls = (urlSplit: string[], baseUrlSplit: string[]): boolean | UrlParameters => {
+  const resultParameters: UrlParameters = {};
 
   for (const i in urlSplit) {
     if (urlSplit.hasOwnProperty(i) && baseUrlSplit.hasOwnProperty(i)) {
@@ -33,12 +37,12 @@ const compareUrls = (urlSplit, baseUrlSplit) => {
   return resultParameters;
 };
 
-export const isRelativePage = url => {
+export const isRelativePage = (url: string): boolean => {
   return url === '' || url[0] === '/';
 };
 
-export const waitForUrlChangeTo = (newUrl, currentUrl) => {
-  return baseUrl => {
+export const waitForUrlChangeTo = (newUrl: string, currentUrl: string) => {
+  return (baseUrl: string): boolean | UrlParameters => {
     const pageUrl = Url.resolve(baseUrl, newUrl);
     const pageDomain = extractDomain(pageUrl);
     const currentUrlDomain = extractDomain(currentUrl);

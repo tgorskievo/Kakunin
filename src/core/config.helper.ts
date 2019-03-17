@@ -1,5 +1,22 @@
+import { UserConfig } from './user-config.interface';
+
 const commandArgs = require('minimist')(process.argv.slice(2));
-let config;
+
+interface KakuninConfig {
+  projectPath?: string;
+  email?: {
+    type?: string;
+    config?: any;
+  };
+  performance?: boolean;
+  accounts?: {
+    [userType: string]: {
+      accounts: [UserConfig];
+    };
+  };
+}
+
+let config: KakuninConfig;
 
 if (process.env.NODE_ENV === 'test') {
   config = {

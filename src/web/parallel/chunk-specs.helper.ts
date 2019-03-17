@@ -1,6 +1,15 @@
 import * as _ from 'lodash';
 
-export const chunkSpecs = (commandArgs, allSpecs, expectedArrayLength, numberOfInstances) => {
+interface ChunkArgs {
+  pattern?: string | boolean;
+}
+
+export const chunkSpecs = (
+  commandArgs: ChunkArgs,
+  allSpecs: string[],
+  expectedArrayLength: number,
+  numberOfInstances: number
+) => {
   if (commandArgs.pattern !== undefined && typeof commandArgs.pattern !== 'boolean') {
     const patterns = commandArgs.pattern.split(',');
     const chunkedSpecs = [];

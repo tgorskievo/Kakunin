@@ -1,6 +1,13 @@
 import * as _ from 'lodash';
 
-export const prepareBrowserInstance = (browserConfig, specs) => {
+interface BrowserInstanceConfig {
+  specs: string[];
+}
+
+export const prepareBrowserInstance = (
+  browserConfig: BrowserInstanceConfig,
+  specs: string[]
+): BrowserInstanceConfig => {
   const instance = _.cloneDeep(browserConfig);
   instance.specs = specs;
 
