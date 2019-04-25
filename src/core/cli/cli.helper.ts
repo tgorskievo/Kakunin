@@ -8,7 +8,7 @@ export const isInitCommand = (args?: any[] | string) => {
   return false;
 };
 
-export const getConfigPath = (configFile, argsConfig, basePath) => {
+export const getConfigPath = (configFile, argsConfig, basePath: string) => {
   return argsConfig ? path.join(basePath, argsConfig) : path.join(basePath, configFile);
 };
 

@@ -5,7 +5,7 @@
     "allowSyntheticDefaultImports": false,
     "outDir": "dist",
     "noUnusedLocals": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "removeComments": false
   },
   "exclude": [

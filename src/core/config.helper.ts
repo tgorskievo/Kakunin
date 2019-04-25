@@ -14,6 +14,24 @@ interface KakuninConfig {
       accounts: [UserConfig];
     };
   };
+  type?: string;
+  baseUrl?: string;
+  apiUrl?: string;
+  waitForPageTimeout?: number;
+  timeout?: number;
+  intervalEmail?: number;
+  maxEmailRepeats?: number;
+  elementsVisibilityTimeout?: number;
+  downloadTimeout?: number;
+  headless?: boolean;
+  clearEmailInboxBeforeTests?: boolean;
+  clearCookiesAfterScenario?: boolean;
+  clearLocalStorageAfterScenario?: boolean;
+  browserMob?: {
+    serverPort: number;
+    port: string;
+  };
+  downloads?: string;
 }
 
 let config: KakuninConfig;

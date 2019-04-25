@@ -110,7 +110,7 @@ export const browsersConfiguration = (config, commandArgs): any => {
       throw new Error('Could not find any files matching regex in the directory!');
     }
 
-    const pushPreparedBrowserInstance = browserType => {
+    const pushPreparedBrowserInstance = (browserType: string) => {
       for (let i = 0; i < numberOfInstances; i++) {
         browsersSettings.push(prepareBrowserInstance(browserConfigs[browserType], chunkedSpecs[i]));
       }

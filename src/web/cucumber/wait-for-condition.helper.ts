@@ -1,7 +1,7 @@
 import config from '../../core/config.helper';
 const globalTimeout = parseInt(config.elementsVisibilityTimeout) * 1000;
 
-export const waitForCondition = (condition, timeout) => {
+export const waitForCondition = (condition: string, timeout: number) => {
   return element => {
     if (element instanceof protractor.ElementArrayFinder) {
       return browser.wait(protractor.ExpectedConditions[condition](element.first()), timeout);

@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
 const FixturesLoader = {
-  reloadFixtures(endpoint) {
+  reloadFixtures(endpoint: string) {
     return fetch(endpoint);
   },
 };

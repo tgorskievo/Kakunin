@@ -15,7 +15,7 @@ describe('Comparators', () => {
 
   it('add new comparator', done => {
     const myComparator = {
-      isSatisfiedBy: values => {
+      isSatisfiedBy: (values: any[]): boolean => {
         for (let i = 0; i < values.length; i++) {
           if (values[i] !== 'foo' && values[i] !== 'bar') {
             return false;
@@ -24,7 +24,7 @@ describe('Comparators', () => {
 
         return true;
       },
-      compare: (values, order) => {
+      compare: (values: any[], order: string): Promise<string | void> => {
         for (let i = 1; i < values.length; i++) {
           const previousValue = values[i - 1];
           const currentValue = values[i];

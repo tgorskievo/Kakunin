@@ -4,11 +4,11 @@ import { Transformer } from '../transformer.interface';
 class GeneratorTransformer implements Transformer {
   constructor(public generator: Generators) {}
 
-  public isSatisfiedBy(prefix) {
+  public isSatisfiedBy(prefix: string) {
     return prefix === 'g:';
   }
 
-  public transform(value) {
+  public transform(value: string) {
     const splittedValues = value.split(':');
     const generatorName = splittedValues[0];
 
