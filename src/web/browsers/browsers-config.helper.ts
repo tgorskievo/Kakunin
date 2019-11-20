@@ -9,7 +9,7 @@ const getDefaultBrowsersConfigs = (config): any => {
   const chromeConfig = {
     browserName: 'chrome',
     chromeOptions: {
-      args: [],
+      args: [`--window-size=${config.browserWidth},${config.browserHeight}`],
       prefs: {
         intl: {
           accept_languages: config.browserLanguage,
@@ -83,16 +83,11 @@ const getExtendedBrowsersConfigs = (config, commandArgs): any => {
     (config.headless && commandArgs.headless === undefined) ||
     (commandArgs.headless && commandArgs.headless !== 'false')
   ) {
-    configs.chromeConfig.chromeOptions.args = [
-      ...configs.chromeConfig.chromeOptions.args,
-      '--headless',
-      `--window-size=${config.browserWidth}x${config.browserHeight}`,
-    ];
+    configs.chromeConfig.chromeOptions.args = [...configs.chromeConfig.chromeOptions.args, '--headless'];
 
     configs.firefoxConfig['moz:firefoxOptions'].args = [
       ...configs.firefoxConfig['moz:firefoxOptions'].args,
       '-headless',
-      `--window-size=${config.browserWidth}x${config.browserHeight}`,
     ];
   }
 
