@@ -23,7 +23,7 @@ module.exports = {
   imageComparator: {
     baselineFolder: 'baseline',
     temporaryFolder: '.tmp',
-    saveAboveTolerance: 50
+    saveAboveTolerance: 10
   },
   clearEmailInboxBeforeTests: false,
   clearCookiesAfterScenario: true,
